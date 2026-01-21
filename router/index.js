@@ -1,6 +1,8 @@
-const express = require("express");
-const app = express();
+const { Router } = require("express");
+const app = Router();
 
-app.get('/pokemon', require('./pokemonController'));
+app.use("/pokemon", require('./pokemon.js'));
+app.use("/type", require('./type.js'));
+app.use("/region", require('./region.js'));
 
 module.exports = app;

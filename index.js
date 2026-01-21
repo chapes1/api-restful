@@ -3,7 +3,7 @@ const cors = require("cors");
 const app = express();
 
 require("dotenv").config({ quiet: true });
-const database = require("./src/config/database");
+const database = require("./config/database");
 
 async function start() {
   await database();
@@ -12,7 +12,7 @@ async function start() {
   app.use(cors());
   app.use("/api", require("./router"));
 
-  app.listen(5000, (err) => {
+  app.listen(3000, (err) => {
     if (err) console.log(err);
     console.log("HTTP server is running");
   });

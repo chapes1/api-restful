@@ -1,14 +1,17 @@
-const mongoose = require('mongoose');
+const mongoose = require("mongoose");
 
-const TypeSchema = new mongoose.Schema({
-  name: {
-    type: String,
-    required: [true, "Name is required"]
+const TypeSchema = new mongoose.Schema(
+  {
+    name: {
+      type: String,
+      required: [true, "Name is required"],
+    },
   },
-}, { timestamps: true });
+  { timestamps: true },
+);
 
-TypeSchema.statics.alreadyExist = function(name) {
+TypeSchema.statics.alreadyExist = function (name) {
   return this.findOne({ name });
-}
+};
 
-module.exports = mongoose.model('Type', TypeSchema);
+module.exports = mongoose.model("Type", TypeSchema);

@@ -1,14 +1,17 @@
-const mongoose = require('mongoose');
+const mongoose = require("mongoose");
 
-const RegionSchema = new mongoose.Schema({
-  name: {
-    type: String,
-    required: [true, "Name is required"]
+const RegionSchema = new mongoose.Schema(
+  {
+    name: {
+      type: String,
+      required: [true, "Name is required"],
+    },
   },
-}, { timestamps: true });
+  { timestamps: true },
+);
 
-RegionSchema.statics.alreadyExist = function(name) {
+RegionSchema.statics.alreadyExist = function (name) {
   return this.findOne({ name });
-}
+};
 
-module.exports = mongoose.model('Region', RegionSchema);
+module.exports = mongoose.model("Region", RegionSchema);
